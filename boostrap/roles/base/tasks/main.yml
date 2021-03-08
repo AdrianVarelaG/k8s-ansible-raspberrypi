@@ -1,0 +1,6 @@
+- name: install dependencies 
+  package:
+    name:
+      - python3-pip 
+      - git
+    state: latest

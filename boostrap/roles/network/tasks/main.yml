@@ -1,0 +1,25 @@
+#- name: Replace host name
+#  tags: network
+#  replace:
+#    path: /etc/hostname
+#    regexp: "ubuntu"
+#    replace: "{{ host_name }}"
+#  notify: reboot_machine
+
+- name: Enable IPV4 forwarding
+  tags: network
+  replace:
+    path: /etc/sysctl.conf
+    regexp: "#net.ipv4.ip_forward=1"
+    replace: "net.ipv4.ip_forward=1"
+  notify: reboot_machine
+
+- name: configure network from template
+  tags: network
+  template:
+    src: "{{ net_template_file }}"
+    dest: /etc/netplan/50-cloud-init.yaml
+    owner: root
+    group: root
+    mode: 0644
+  notify: reboot_machine

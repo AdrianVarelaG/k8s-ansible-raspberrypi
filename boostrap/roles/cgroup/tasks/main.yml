@@ -1,0 +1,10 @@
+- name: Enable Cgroup memory 
+  tags: always 
+  copy: 
+    src: cmdline.txt
+    dest: /boot/firmware/cmdline.txt
+    owner: root
+    group: root
+    mode: 0440
+  notify: reboot_machine
+  
