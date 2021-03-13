@@ -1,6 +1,0 @@
-ssh_users: "ubuntu ansible"
-ssh_template_file: sshd_config_ubuntu.j2
-
-mac_address: dc:a6:32:d5:80:94
-ip_address: 192.168.0.100/24
-net_template_file: 50_cloud_init_ubuntu.j2
