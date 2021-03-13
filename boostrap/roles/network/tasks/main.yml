@@ -1,12 +1,4 @@
-#- name: Replace host name
-#  tags: network
-#  replace:
-#    path: /etc/hostname
-#    regexp: "ubuntu"
-#    replace: "{{ host_name }}"
-#  notify: reboot_machine
-
-- name: Enable IPV4 forwarding
+- name: Enable IPv4 forwarding
   tags: network
   replace:
     path: /etc/sysctl.conf

@@ -1,13 +1,13 @@
 - name: create Ansible user
   tags: always
   user:
-    name: ansible
+    name: "{{ user }}"
     group: root
 
 - name: add ssh key for ansible
   tags: always
   authorized_key:
-    user: ansible
+    user: "{{ user }}"
     key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKqvCSwtFSAaDZoh2ys1C34qIzkFWqQd6dRJkyzn9ZrC ansible"
 
 - name: Add sudoers file for ansible
